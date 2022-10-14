@@ -33,7 +33,7 @@ namespace CMDMessagerClient.Connection
             else
             {
                 Program.handleConnection.sendAndRecive(msg + "<EOF>");
-
+                
             }
 
 
