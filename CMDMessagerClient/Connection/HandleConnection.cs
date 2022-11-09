@@ -46,10 +46,14 @@ namespace CMDMessagerClient.Connection
                 }
                 catch (SocketException se)
                 {
+                    shutdown();
+                    Environment.Exit(0);
                     Debug.WriteLine("SocketException : {0}", se.ToString());
                 }
                 catch (Exception e)
                 {
+                    shutdown();
+                    Environment.Exit(0);
                     Debug.WriteLine("Unexpected exception : {0}", e.ToString());
                 }
 
@@ -111,7 +115,7 @@ namespace CMDMessagerClient.Connection
                 byte[] msg = Encoding.ASCII.GetBytes(txt);
                 // Send the data through the socket.  
                 int bytesSent = sender.Send(msg);
-
+                
                 // Receive the response from the remote device.  
 
             }
@@ -121,10 +125,14 @@ namespace CMDMessagerClient.Connection
             }
             catch (SocketException se)
             {
+                shutdown();
+                Environment.Exit(0);
                 Debug.WriteLine("SocketException : {0}", se.ToString());
             }
             catch (Exception e)
             {
+                shutdown();
+                Environment.Exit(0);
                 Debug.WriteLine("Unexpected exception : {0}", e.ToString());
             }
 
